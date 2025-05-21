@@ -9,10 +9,10 @@ services:
       dockerfile: Dockerfile
     image: nginx
     ports:
-      - 443:443
+      - "8443:443"
     volumes:
       - ../secrets:/etc/nginx/ssl
-      - ../../data/wordpress:/var/www/html
+      - data_wordpress:/var/www/html
       - ./requirements/bonus/portfolio:/var/www/html/portfolio
     networks:
       - docker-network 
@@ -26,7 +26,7 @@ services:
     image: mariadb
     env_file: .env
     volumes:
-      - mydata:/var/lib/mysql
+      - data_db:/var/lib/mysql
     networks:
       - docker-network
     secrets:
@@ -44,7 +44,7 @@ services:
     networks:
       - docker-network 
     volumes:
-      - ../../data/wordpress:/var/www/html
+      - data_wordpress:/var/www/html
     depends_on:
       - db
       - redis
@@ -78,15 +78,22 @@ services:
     networks:
       - docker-network
     volumes:
-      - ../../data/wordpress:/var/www/html
+      - data_wordpress:/var/www/html
 
 volumes:
-  mydata:
+  data_db:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/tolrandr/data/db
+      device: /home/dinandrianom/test/data/db
+  data_wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/dinandrianom/test/data/wordpress
+
 
 networks:
   docker-network:
