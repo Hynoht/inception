@@ -1,0 +1,333 @@
+body {
+	background: #fefefe;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.contents {
+	width: 100%;
+	color: #303030;
+	font-family: "Cascadia Code", sans-serif;
+}
+
+.head {
+	max-width: 1600px;
+	width: auto;
+	height: 920px;
+	margin: auto;
+}
+
+.head {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 50px;
+}
+
+.about, .skills, .achievements{
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 10px 0;
+}
+
+.about {
+	background-color: #1C1D20;
+	color: #fefefe;
+}
+
+.skills {
+	max-width: 1080px;
+	width: auto;
+	margin: auto;
+	flex-direction: column;
+	justify-content: center;
+	margin: 100px 0;
+}
+
+.list {
+	min-width: 400px;
+	width: 100%;
+	max-width: 800px;
+	border-radius: 15px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 50px;
+	padding: 20px;
+	margin: 10px 0;
+	color: #646464;
+}
+
+.descrit {
+	width: 500px;
+}
+
+.box {
+	position: relative;
+	width: 920px;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 10px;
+}
+
+.card-box {
+	width: 80px;
+	height: 80px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	padding: 2px;
+}
+
+.img-box {
+	width: 50px;
+	height: 50px;
+}
+
+
+.c_body, .skills, .card-element {
+	min-width: 480px;
+	width: 100%;
+	max-width: 1080px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.achievements {
+	flex-direction: column;
+}
+
+.sentence {
+	position: relative;
+	line-height: 1.6;
+	overflow-wrap: break-word;
+	padding: 20px;
+}
+
+.title {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: auto;
+}
+
+.sentence p {
+	color: #b8b8b8;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	height: auto;
+}
+
+.card {
+	display: flex;
+	flex-wrap: wrap;
+	height: auto;
+	padding: 10px;
+	gap: 50px;
+}
+
+.xp_box {
+	width: 150px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: flex-start;
+	padding: 5px;
+	gap: 5px;
+}
+
+.xp_box .level {
+	font-size: xx-large;
+}
+
+.xp_box span {
+	height: 40px;
+}
+
+.xp_box span:nth-child(2) {
+	font-size: medium;
+	color: #b8b8b8;
+}
+
+.intro {
+	width: 500px;
+	color: #313131;
+	font-weight: 500;
+}
+
+.intro p{
+	color: #646464;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	font-size: 22px;
+	width: 200px;
+	height: 30px;
+	padding: 10px 5px;
+}
+
+.img {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	background-color: lightgray;
+	overflow: hidden;
+	border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.wrapper {
+	position: relative;
+}
+
+.wrapper::after {
+	content: "";
+	position: absolute;
+	background: rgba(99, 219, 255, 0.301);
+	top: -20px;
+	right: 0;
+	width: 350px;
+	height: 350px;
+	border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+	z-index: -1;
+	transform: rotate(60deg);
+}
+
+.wrapper::before {
+	content: "";
+	position: absolute;
+	background: rgba(243, 108, 255, 0.473);
+	top: -20px;
+	right: 0;
+	width: 350px;
+	height: 350px;
+	border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+	z-index: -1;
+	transform: rotate(90deg);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+
+.image {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	background-color: lightgray;
+	overflow: hidden;
+}
+
+.skills {
+	justify-content: start;
+}
+
+.card-element {
+	display: flex;
+	height: 200px;
+	gap: 5px;
+	width: 95%;
+	border: 1px solid #dadada;
+	border-radius: 15px;
+	padding: 5px;
+}
+
+.image-achieve {
+	display: flex;
+	align-items: center;
+	width: 290px;
+	height: 210px;
+	border-radius: 15px;
+	overflow: hidden;
+	position: relative;
+	top: -5px;
+	left: -5px;
+}
+
+.descrit {
+	width: 500px;
+	padding: 5px 10px;
+	position: relative;
+}
+
+.tile-element {
+	font-weight: 600;
+	font-size: larger;
+}
+
+.link-descrit {
+	color: #646464;
+	font-size: small;
+}
+
+.descrit::before {
+	content: "";
+	background-color: #d1d1d1;
+	width: 2px;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	left: -5px;
+}
+
+@media screen and (max-width: 480px) {
+	.head {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		gap: 20px;
+	}
+	.intro {
+		width: 350px;
+		font-size: small;
+	}
+	.wrapper .img{
+		width: 280px;
+		height: 280px;
+	}
+	.wrapper::after, .wrapper::before {
+		width: 300px;
+		height: 300px;
+	}
+	.c_body {
+		min-width: 300px;
+	}
+	.card {
+		gap: 20px;
+	}
+}
+
+@media screen and (max-width: 1020px) {
+	.head {
+		display: flex;
+		flex-direction: column-reverse;
+		gap: 20px;
+	}
+}
