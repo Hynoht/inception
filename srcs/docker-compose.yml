@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3'
 
 services:
   nginx:
@@ -12,12 +12,13 @@ services:
       - "443:443"
     volumes:
       - ../secrets/certificate:/etc/nginx/ssl
-      - data_wordpress:/var/www/html
       - ./requirements/bonus/portfolio:/var/www/html/portfolio
+      - data_wordpress:/var/www/html
+      - data_phpmyadmin:/var/www/html/phpmyadmin
     networks:
       - docker-network 
 
-  db:
+  mariadb:
     container_name: mariadb
     restart: always
     build:
@@ -26,7 +27,7 @@ services:
     image: mariadb
     env_file: .env
     volumes:
-      - data_db:/var/lib/mysql
+      - data_mariadb:/var/lib/mysql
     networks:
       - docker-network
     secrets:
@@ -46,7 +47,7 @@ services:
     volumes:
       - data_wordpress:/var/www/html
     depends_on:
-      - db
+      - mariadb
       - redis
     secrets:
       - admin_password
@@ -94,19 +95,42 @@ services:
     networks:
       - docker-network
 
+  phpmyadmin:
+    container_name: phpmyadmin
+    restart: always
+    depends_on:
+      - mariadb
+    build:
+      context: ./requirements/bonus/phpmyadmin
+      dockerfile: Dockerfile
+    volumes:
+      - data_phpmyadmin:/var/www/html/phpmyadmin
+    image: phpmyadmin
+    networks:
+      - docker-network
+
 volumes:
-  data_db:
+  data_mariadb:
+    name: data_mariadb
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/tolrandr/data/db
+      device: /home/tolrandr/data/mariadb
   data_wordpress:
+    name: data_wordpress
     driver: local
     driver_opts:
       type: none
       o: bind
       device: /home/tolrandr/data/wordpress
+  data_phpmyadmin:
+    name: data_phpmyadmin
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/tolrandr/data/phpmyadmin
 
 networks:
   docker-network:

@@ -9,9 +9,9 @@ RUN apt update -y \
 	&& mkdir -p /run/php
 	
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY ./conf/php-fpm.conf /etc/php/7.4/fpm/php-fpm.conf
 COPY ./tools/. /usr/bin
 
 RUN chmod +x /usr/local/bin/wp && chmod +x /usr/bin/run.sh
-
 
 ENTRYPOINT [ "/usr/bin/run.sh" ]

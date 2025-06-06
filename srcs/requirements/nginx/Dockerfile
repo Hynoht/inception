@@ -1,7 +1,7 @@
 FROM debian:bullseye
 
 RUN apt update -y \
-	&& apt install -y nginx openssl \
+	&& apt install -y nginx openssl curl\
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm /etc/nginx/sites-enabled/default
 

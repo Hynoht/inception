@@ -15,17 +15,17 @@ create_config() {
 
     wp config create \
         --allow-root \
-        --dbname=$MYSQL_DATABASE \
-        --dbuser=$MYSQL_USER \
-        --dbpass=$MYSQL_PASSWORD \
-        --dbhost=db --skip-check
+        --dbname="$MYSQL_DATABASE" \
+        --dbuser="$MYSQL_USER" \
+        --dbpass="$MYSQL_PASSWORD" \
+        --dbhost=mariadb --skip-check
 
     wp core  install \
         --allow-root \
-        --url=$URL --title="$ADMIN_USER" \
+        --url="$DOMAINE_NAME" --title="$TITLE" \
         --admin_user="$ADMIN_USER" \
         --admin_password="$ADMIN_PASSWORD" \
-        --admin_email=$ADMIN_EMAIL
+        --admin_email="$ADMIN_EMAIL"
     
     if ! wp user get "$SECOND_USER" --allow-root > /dev/null 2>&1; then
         wp user create "$SECOND_USER" "$USER_EMAIL" \

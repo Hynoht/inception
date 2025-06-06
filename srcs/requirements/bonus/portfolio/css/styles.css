@@ -566,12 +566,10 @@ section {
   }
 }
 
-/* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Loading Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
